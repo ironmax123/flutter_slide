@@ -1,17 +1,36 @@
 # slides_for_mac
 
-A new Flutter project.
+Flutterで作成されたプレゼンテーション用スライドアプリです。
+主にFlutterにおけるフォルダブル端末や大画面（Android 16, Android XRなど）への対応について解説するスライドが含まれています。
 
-## Getting Started
+## 概要
 
-This project is a starting point for a Flutter application.
+このプロジェクトは、プレゼンテーションスライド自体をFlutterアプリケーションとして実装したものです。
+キーボードの矢印キーでスライドを操作でき、レスポンシブなレイアウトや実際のコード例を交えた解説が可能です。
 
-A few resources to get you started if this is your first Flutter project:
+## 主なトピック
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+- Flutterでのフォルダブル（Foldable）対応
+- Android 16 / Android XR における大画面対応
+- レスポンシブデザインの実装例（`NavigationRail`など）
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
-# flutter_slide
+## 技術スタック
+
+- **Framework**: Flutter
+- **State Management**: Riverpod (Hooks Riverpod)
+- **Code Generation**: Freezed, Riverpod Generator
+- **Routing**: GoRouter
+- **UI Utilities**: Gap, Flutter Hooks
+
+## 実行方法
+
+```bash
+flutter pub get
+flutter run -d macos
+```
+
+## ディレクトリ構成
+
+- `lib/pages/`: 各スライドページの実装
+- `lib/viewmodel/`: スライドの状態管理（ページ遷移など）
+- `lib/pages/components/`: 共通コンポーネント（AppBar, Textなど）
