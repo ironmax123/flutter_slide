@@ -1,4 +1,5 @@
 import 'dart:io';
+import 'package:flutter/rendering.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:pdf/pdf.dart';
 import 'package:pdf/widgets.dart' as pw;
@@ -9,7 +10,7 @@ void main() {
     final directory = Directory('screenshots');
 
     if (!directory.existsSync()) {
-      print(
+      debugPrint(
         'Error: screenshots directory not found. Run integration test first.',
       );
       return;
@@ -31,7 +32,7 @@ void main() {
     });
 
     if (files.isEmpty) {
-      print('Error: No screenshots found.');
+      debugPrint('Error: No screenshots found.');
       return;
     }
 
@@ -49,6 +50,6 @@ void main() {
 
     final file = File('slides.pdf');
     await file.writeAsBytes(await pdf.save());
-    print('Successfully generated ${file.path}');
+    debugPrint('Successfully generated ${file.path}');
   });
 }

@@ -34,3 +34,12 @@ flutter run -d macos
 - `lib/pages/`: 各スライドページの実装
 - `lib/viewmodel/`: スライドの状態管理（ページ遷移など）
 - `lib/pages/components/`: 共通コンポーネント（AppBar, Textなど）
+
+(スクリーンショット撮影)
+```
+flutter test integration_test/capture_slides_test.dart -d macos 
+```
+(PDF生成)
+```
+flutter test tool/generate_pdf_test.dart 
+```
