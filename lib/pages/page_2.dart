@@ -63,11 +63,11 @@ class Page2 extends HookConsumerWidget {
                 Gap(24),
                 PrimaryText(text: 'ここ1年半くらいは主にFlutterで開発'),
                 Gap(24),
-                PrimaryText(text: 'モバイルアプリ開発にのめり込んでしまったただのスマホオタク'),
+                PrimaryText(text: 'スマホを愛するあまり、開発の沼にハマったオタク'),
                 Gap(55),
                 PrimaryText(
                   text:
-                      'DroidKaigi2025に参加した時に大画面対応のセッションを見てFlutterでもやってみるかとなりました',
+                      'DroidKaigi2025に参加した時に大画面対応のセッションを見てFlutterでもやってみようとなった',
                 ),
               ],
             ),

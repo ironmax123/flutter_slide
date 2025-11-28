@@ -25,6 +25,9 @@ class Page6 extends HookConsumerWidget {
           PrimaryText(text: '画面を切り替えるために画面サイズを判定するためのProviderを定義する'),
           Gap(8),
           PrimaryText(text: '切り替えの参考画面サイズはGoogleが提唱している600px以上を大画面とする'),
+          PrimaryText(
+            text: ' →Android developerページにある"ウィンドウ サイズクラスを使用する"というページを参考にしました',
+          ),
           Gap(8),
           PrimaryText(text: 'また横向きやさらに大きいタブレットなどで対応する場合横は840px以上とする'),
           Gap(16),

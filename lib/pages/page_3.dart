@@ -23,13 +23,19 @@ class Page3 extends HookConsumerWidget {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          PrimaryText(text: 'Android16でアスペクト比が無視されてしまう'),
-          Gap(8),
           PrimaryText(text: 'Android XRの登場'),
           Gap(8),
           PrimaryText(text: 'フォルダブルスマホの普及'),
           Gap(8),
-          PrimaryText(text: '我々が意図していないタイミングでのレイアウト崩れも！'),
+          PrimaryText(text: '開発者が意図していないタイミングでのレイアウト崩れもある'),
+          Gap(8),
+          PrimaryText(text: 'Android 16以降、大画面端末でアスペクト比制限が無視される'),
+          Gap(4),
+          PrimaryText(text: '  ・minAspectRatio / maxAspectRatioが無効化'),
+          Gap(4),
+          PrimaryText(text: '  ・画面の向き固定(screenOrientation)も無視される'),
+          Gap(4),
+          PrimaryText(text: '  ・強制的にリサイズ可能になり、レターボックス(黒帯)が表示されなくなる'),
         ],
       ),
     );
