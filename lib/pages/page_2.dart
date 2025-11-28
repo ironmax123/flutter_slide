@@ -67,7 +67,7 @@ class Page2 extends HookConsumerWidget {
                 Gap(55),
                 PrimaryText(
                   text:
-                      '手元にフォルダブル端末がある\n →DroidKaigi2025に参加した時に大画面対応のセッションを見てFlutterでもやってみるかとなりました',
+                      'DroidKaigi2025に参加した時に大画面対応のセッションを見てFlutterでもやってみるかとなりました',
                 ),
               ],
             ),
