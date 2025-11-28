@@ -22,9 +22,7 @@ void main() {
     await tester.pumpAndSettle();
 
     // Create screenshots directory
-    final directory = Directory(
-      '/Users/eitanakgaichi/AndroidStudioProjects/slides_for_mac/screenshots',
-    );
+    final directory = Directory('/slides_for_mac/screenshots');
     if (directory.existsSync()) {
       directory.deleteSync(recursive: true);
     }
@@ -49,9 +47,7 @@ void main() {
           );
           if (byteData != null) {
             final buffer = byteData.buffer.asUint8List();
-            File(
-              '/Users/eitanakgaichi/AndroidStudioProjects/slides_for_mac/screenshots/slide_${i + 1}.png',
-            ).writeAsBytesSync(buffer);
+            File('/screenshots/slide_${i + 1}.png').writeAsBytesSync(buffer);
             print('Saved slide_${i + 1}.png');
           }
         } else {
