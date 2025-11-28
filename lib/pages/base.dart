@@ -36,6 +36,8 @@ class Base extends HookConsumerWidget {
       const Page6(),
       const Page7(),
       const Page8(),
+      const Page82(),
+      const Page83(),
       const Page9(),
     ];
 

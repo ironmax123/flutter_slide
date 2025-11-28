@@ -31,14 +31,21 @@ class Page5 extends HookConsumerWidget {
           PrimaryText(text: '既存の画面やVMを再利用することができるので工数を削減できる'),
           Gap(8),
           PrimaryText(
-            text: 'ViewModelやフォルダブルスクリーンと通常画面を切り替えるConsumerWidgetを定義する',
+            text:
+                '画面サイズ判定のProviderをwatchするConsumerWidgetを定義してこのwidgetに遷移するようにrouterを定義',
           ),
           Gap(8),
           PrimaryText(text: 'この構成だとMVVM + Repositoryパターンを逸脱せず実装できる'),
           Gap(8),
           PrimaryText(text: '   → コンポーネントとVMが1対1で新しい画面でラップしなおしただけと解釈できる'),
           Gap(16),
-          Image.asset('assets/images/page_5-1.png', width: 400),
+          Row(
+            children: [
+              Image.asset('assets/images/page_5-1.png', width: 400),
+              Gap(20),
+              Image.asset('assets/images/page_5-3.png', width: 500),
+            ],
+          ),
         ],
       ),
     );

@@ -30,7 +30,7 @@ void main() {
     }
     directory.createSync();
 
-    const totalPages = 9;
+    const totalPages = 11;
 
     for (int i = 0; i < totalPages; i++) {
       // Wait for animations

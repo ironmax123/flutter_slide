@@ -17,7 +17,7 @@ class Page1 extends HookConsumerWidget {
     }, []);
 
     return Center(
-      child: Text('Flutterフォルダブル対応をしよう！', style: TextStyle(fontSize: 64)),
+      child: Text('Flutterでフォルダブル対応をしよう！', style: TextStyle(fontSize: 64)),
     );
   }
 }

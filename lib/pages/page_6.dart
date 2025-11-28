@@ -22,13 +22,20 @@ class Page6 extends HookConsumerWidget {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          PrimaryText(text: '画面を切り替えるために画面サイズをWatchするためのProviderを定義する'),
+          PrimaryText(text: '画面を切り替えるために画面サイズを判定するためのProviderを定義する'),
           Gap(8),
           PrimaryText(text: '切り替えの参考画面サイズはGoogleが提唱している600px以上を大画面とする'),
           Gap(8),
           PrimaryText(text: 'また横向きやさらに大きいタブレットなどで対応する場合横は840px以上とする'),
           Gap(16),
-          Center(child: Image.asset('assets/images/page_6-1.png', width: 500)),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              Image.asset('assets/images/page_6-1.png', width: 500),
+              Gap(16),
+              Image.asset('assets/images/page_6-2.png', width: 500),
+            ],
+          ),
         ],
       ),
     );
