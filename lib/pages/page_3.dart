@@ -36,6 +36,8 @@ class Page3 extends HookConsumerWidget {
           PrimaryText(text: '  ・画面の向き固定(screenOrientation)も無視される'),
           Gap(4),
           PrimaryText(text: '  ・強制的にリサイズ可能になり、レターボックス(黒帯)が表示されなくなる'),
+          Gap(8),
+          PrimaryText(text: 'この辺りはDroidKaigi2025で詳しく発表されてました'),
         ],
       ),
     );

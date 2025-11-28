@@ -36,7 +36,7 @@ class Page6 extends HookConsumerWidget {
             children: [
               Image.asset('assets/images/page_6-1.png', width: 500),
               Gap(16),
-              Image.asset('assets/images/page_6-2.png', width: 500),
+              Image.asset('assets/images/page_5-3.png', width: 500),
             ],
           ),
         ],

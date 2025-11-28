@@ -43,7 +43,7 @@ class Page5 extends HookConsumerWidget {
             children: [
               Image.asset('assets/images/page_5-1.png', width: 400),
               Gap(20),
-              Image.asset('assets/images/page_5-3.png', width: 500),
+              Image.asset('assets/images/page_5-2.png', width: 500),
             ],
           ),
         ],

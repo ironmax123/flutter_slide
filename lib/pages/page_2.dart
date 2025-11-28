@@ -69,6 +69,11 @@ class Page2 extends HookConsumerWidget {
                   text:
                       'DroidKaigi2025に参加した時に大画面対応のセッションを見てFlutterでもやってみようとなった',
                 ),
+                Gap(8),
+                PrimaryText(
+                  text:
+                      '[基礎から学ぶ大画面対応 \n〜「Large screen differentiated」認定アプリの開発知見〜]',
+                ),
               ],
             ),
           ),
