@@ -1,0 +1,81 @@
+[
+  {
+    "page_num": 1,
+    "title": "",
+    "content": "Flutterでフォルダブル対応をしよう！",
+    "images": null
+  },
+  {
+    "page_num": 3,
+    "title": "1. 大画面,フォルダブルについて",
+    "content": "Android XRの登場\nフォルダブルスマホの普及\n開発者が意図していないタイミングでのレイアウト崩れもある\nAndroid 16以降、大画面端末でアスペクト比制限が無視される\n  ・minAspectRatio / maxAspectRatioが無効化\n  ・画面の向き固定(screenOrientation)も無視される\n  ・強制的にリサイズ可能になり、レターボックス(黒帯)が表示されなくなる\nこの辺りはDroidKaigi2025で詳しく発表されてました",
+    "images": null
+  },
+  {
+    "page_num": 4,
+    "title": "2. Flutterで対応してみる",
+    "content": "今回作成したのは三画面のアプリ\n3画面のうち二画面を大画面対応していく\nbodyプロパティの中全体をコンポーネント化\nViewModelやStateは普段通り実装する",
+    "images": [
+      "assets/images/page_4-1.png",
+      "assets/images/page_4-2.png"
+    ]
+  },
+  {
+    "page_num": 5,
+    "title": "2. Flutterで対応してみる",
+    "content": "フォルダブルスマホで表示したいFoldableScreenを実装する\nFoldableScreenで先ほど定義したAscreenBodyとBscreenBodyを呼び出す\n既存の画面やVMを再利用することができるので工数を削減できる\n画面サイズ判定のProviderをwatchするConsumerWidgetを定義してこのwidgetに遷移するようにrouterを定義\nこの構成だとMVVM + Repositoryパターンを逸脱せず実装できる\n   → コンポーネントとVMが1対1で新しい画面でラップしなおしただけと解釈できる",
+    "images": [
+      "assets/images/page_5-1.png",
+      "assets/images/page_5-2.png"
+    ]
+  },
+  {
+    "page_num": 6,
+    "title": "2. Flutterで対応してみる",
+    "content": "画面を切り替えるために画面サイズを判定するためのProviderを定義する\n切り替えの参考画面サイズはGoogleが提唱している600px以上を大画面とする\n →Android developerページにある\"ウィンドウ サイズクラスを使用する\"というページを参考にしました\nまた横向きやさらに大きいタブレットなどで対応する場合横は840px以上とする",
+    "images": [
+      "assets/images/page_6-1.png",
+      "assets/images/page_5-3.png"
+    ]
+  },
+  {
+    "page_num": 7,
+    "title": "2. Flutterで対応してみる",
+    "content": "Providerが定義できればBottomNavigationをNavigationRailにする\nGoogleは640px以上の大画面アプリではNavigationRailを推奨している",
+    "images": [
+      "assets/images/page_7-1.png"
+    ]
+  },
+  {
+    "page_num": 8,
+    "title": "3. アプリにくみこんでみた",
+    "content": "DEMO",
+    "images": null
+  },
+  {
+    "page_num": 82,
+    "title": "3. アプリにくみこんでみた",
+    "content": "",
+    "images": [
+      "assets/demo/home-1.png",
+      "assets/demo/saves.png",
+      "assets/demo/description-1.png",
+      "assets/demo/open_home.png",
+      "assets/demo/open_saves.png"
+    ]
+  },
+  {
+    "page_num": 83,
+    "title": "3. アプリにくみこんでみた",
+    "content": "",
+    "images": [
+      "assets/demo/video.mp4"
+    ]
+  },
+  {
+    "page_num": 9,
+    "title": "4. 感想,まとめ",
+    "content": "- 今あるコンポーネントやVMを再利用できるので工数がそこまでかからず実装できる\n- AppBar共通化したかったのでこのような実装になったがScaffoldごとよびだして並べる実装だともっと楽にできると思います\n- 全部の画面をやるというよりチャット画面や設定画面など一部の画面を対応させるのが良さそう\n- Androidだけじゃなくて2026年後半にはAppleもフォルダブルを出すという噂もある",
+    "images": null
+  }
+]

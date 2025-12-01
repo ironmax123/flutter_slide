@@ -1,19 +1,20 @@
+import 'dart:convert';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
+import 'package:slides_for_mac/model/slide_content.dart';
+import 'package:slides_for_mac/pages/components/slide_page.dart';
 
 import '../viewmodel/base_view_model.dart';
 import 'components/app_bar.dart';
-import 'page_1.dart';
 import 'page_2.dart';
-import 'page_3.dart';
-import 'page_4.dart';
-import 'page_5.dart';
-import 'page_6.dart';
-import 'page_7.dart';
-import 'page_8.dart';
-import 'page_9.dart';
+
+Future<List<SlideContent>> loadSlides() async {
+  final jsonString = await rootBundle.loadString('assets/content.json');
+  final List<dynamic> jsonList = json.decode(jsonString);
+  return jsonList.map((json) => SlideContent.fromJson(json)).toList();
+}
 
 class Base extends HookConsumerWidget {
   const Base({super.key});
@@ -22,30 +23,33 @@ class Base extends HookConsumerWidget {
   Widget build(BuildContext context, WidgetRef ref) {
     final state = ref.watch(baseViewModelProvider);
     final viewModel = ref.watch(baseViewModelProvider.notifier);
+
+    final slidesFuture = useMemoized(loadSlides);
+    final snapshot = useFuture(slidesFuture);
+
     final pageController = usePageController(
       initialPage: state.currentPageIndex,
     );
     final focusNode = useFocusNode();
 
+    if (!snapshot.hasData) {
+      return const Scaffold(body: Center(child: CircularProgressIndicator()));
+    }
+
+    final slides = snapshot.data!;
+    slides.sort((a, b) => a.pageNum.compareTo(b.pageNum));
+
     final pages = [
-      const Page1(),
+      ...slides.where((s) => s.pageNum < 2).map((s) => SlidePage(content: s)),
       const Page2(),
-      const Page3(),
-      const Page4(),
-      const Page5(),
-      const Page6(),
-      const Page7(),
-      const Page8(),
-      const Page82(),
-      const Page83(),
-      const Page9(),
+      ...slides.where((s) => s.pageNum > 2).map((s) => SlidePage(content: s)),
     ];
 
-    // Set total pages on mount
+    // Set total pages on mount (only when pages are ready)
     useEffect(() {
       viewModel.setTotalPages(pages.length);
       return null;
-    }, []);
+    }, [pages.length]);
 
     // Sync PageView with state
     useEffect(() {
