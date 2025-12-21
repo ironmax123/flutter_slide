@@ -70,17 +70,18 @@ class Page2 extends HookConsumerWidget {
                 Gap(55),
                 PrimaryText(text: '高校が少し特殊で授業でJavaをやってたので高校生の頃からAndroidアプリ開発'),
                 Gap(8),
+                // PrimaryText(text: '万博の非公式地図アプリなんかをつくったりしています'),
                 PrimaryText(
                   text:
                       'Java/XMLをやったあとに大学に入ってUdemyを徘徊してたらFlutterを見つけてFlutterを始める',
                 ),
-                Gap(16),
-                PrimaryText(
-                  text:
-                      'AI時代以前からずっとAndroid Studioを使っててだんだん性能が足りなくなりMacの性能不足で買い換える前は一瞬VScodeで開発していた',
-                ),
-                Gap(8),
-                PrimaryText(text: 'web系の開発は基本VScodeで開発してた'),
+                // Gap(16),
+                // PrimaryText(
+                //   text:
+                //       'AI時代以前からずっとAndroid Studioを使っててだんだん性能が足りなくなりMacの性能不足で買い換える前は一瞬VScodeで開発していた',
+                // ),
+                // Gap(8),
+                // PrimaryText(text: 'web系の開発は基本VScodeで開発してた'),
               ],
             ),
           ),

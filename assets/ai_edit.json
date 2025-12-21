@@ -18,7 +18,7 @@
   {
     "page_num": 4,
     "title": "他のAIエディタ",
-    "content": "### VSCode\n- Web / Python 用には慣れてる  \n- でも Android / Flutter 開発用に乗り換える気は起きず  \n    - Macの性能不足で一時期はFlutterでも使用してたがMacの買い替えてからAndroid Studioに戻ってきた\n\n### Cursor / Kiro\n- 一瞬使って「なんか難しい…」で離脱  \n- 設定やエージェントのクセが強め  \n- .cursor???.kiro???面倒やなAndroidStudioとClaudeCodeで良い",
+    "content": "### VSCode\n- Web / Python 用には慣れてる  \n- でも Android / Flutter 開発用に乗り換える気は起きず  \n    - Macの性能不足で一時期はFlutterでも使用してたがMacの買い替えてからAndroid Studioに戻ってきた\n\n### Cursor / Kiro\n- 一瞬使って「なんか難しい…」で離脱  \n- .cursor???.kiro???面倒やなAndroidStudioとClaudeCodeで良い",
     "images": null,
     "isMd": true,
     "isRow":null
@@ -26,8 +26,8 @@
   {
     "page_num": 5,
     "title": "Antigravity",
-    "content": "- あのGoogleがAIエディタ？まあ一回触るか\n- VSコード準拠で面倒な設定しなくても使えるんかええやん\n- AntigravityくんKiroやCursorとほぼ同じことができて尚且つ対話専用windowもええな",
-    "images": null,
+    "content": "- あのGoogleがAIエディタ？まあ一回触るか\n- VSコード準拠で面倒な設定しなくても使える\n- AntigravityくんKiroやCursorとほぼ同じことができて尚且つ対話専用windowも👍\n- Customizationsを使用することでワークスペーごとや全体のルールやワークフローを設定できるので楽",
+    "images": ["assets/images/ai_edit/antigravity.png","assets/images/ai_edit/models.png"],
     "isMd": true,
     "isRow":null
   },
@@ -42,7 +42,7 @@
   {
     "page_num": 7,
     "title": "Antigravity の感想2",
-    "content": "# MCP Store が便利\n\n- Figma Dev ModeやDart MCP,SupabaseMCPなど\n- jsonをわざわざ作らなくてもクリックするだけでエージェントが使えるようになる\n- **「設定しなくても勝手に賢くなるAI IDE」**",
+    "content": "# MCP Store が便利\n\n- Figma Dev ModeやDart MCP,SupabaseMCPなど\n- jsonをわざわざ作らなくてもクリックするだけでエージェントが使えるようになる",
     "images": ["assets/images/ai_edit/mcp_server.png"],
     "isMd": true,
     "isRow":true
@@ -73,10 +73,10 @@
   },
   {
     "page_num": 11,
-    "title": "",
-    "content": "「Antigravity、Cmd + E だけでも触る価値あります」",
+    "title": "結論",
+    "content": "### Antigravityは一部英語だったり機能面でCursorに劣る部分もあるかと思いますがこれからに期待しています",
     "images": null,
-    "isMd": false,
+    "isMd": true,
     "isRow":null
   }
 ]
