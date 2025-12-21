@@ -10,6 +10,8 @@ class SlideContent with _$SlideContent {
     required String title,
     required String content,
     List<String>? images,
+    @Default(false) bool? isMd,
+    bool? isRow,
   }) = _SlideContent;
 
   factory SlideContent.fromJson(Map<String, dynamic> json) =>

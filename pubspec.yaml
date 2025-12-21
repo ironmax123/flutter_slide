@@ -25,6 +25,7 @@ dependencies:
   freezed_annotation: ^2.4.4
   flutter_dotenv: ^5.0.2
   video_player: ^2.8.2
+  flutter_markdown: ^0.7.7+1
 
 dev_dependencies:
   flutter_test:
@@ -42,3 +43,6 @@ flutter:
     - assets/images/
     - assets/demo/
     - assets/content.json
+    - assets/pochipochi_content.json
+    - assets/ai_edit.json
+    - assets/images/ai_edit/

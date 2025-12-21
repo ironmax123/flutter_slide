@@ -22,13 +22,13 @@ void main() {
     await tester.pumpAndSettle();
 
     // Create screenshots directory
-    final directory = Directory('/slides_for_mac/screenshots');
+    final directory = Directory('screenshots');
     if (directory.existsSync()) {
       directory.deleteSync(recursive: true);
     }
     directory.createSync();
 
-    const totalPages = 11;
+    const totalPages = 13;
 
     for (int i = 0; i < totalPages; i++) {
       // Wait for animations
@@ -47,7 +47,7 @@ void main() {
           );
           if (byteData != null) {
             final buffer = byteData.buffer.asUint8List();
-            File('/screenshots/slide_${i + 1}.png').writeAsBytesSync(buffer);
+            File('./screenshots/slide_${i + 1}.png').writeAsBytesSync(buffer);
             print('Saved slide_${i + 1}.png');
           }
         } else {

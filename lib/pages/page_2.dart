@@ -50,6 +50,11 @@ class Page2 extends HookConsumerWidget {
                     'ぽちぽちのつどい/Ale Engineer',
                     style: TextStyle(color: Colors.black54, fontSize: 22),
                   ),
+                  Gap(8),
+                  Text(
+                    'GitHub: @ironmax123 \n Zenn: @tolto',
+                    style: TextStyle(color: Colors.black54, fontSize: 22),
+                  ),
                 ],
               ),
             ],
@@ -62,21 +67,44 @@ class Page2 extends HookConsumerWidget {
               children: [
                 Gap(24),
                 PrimaryText(text: 'ここ1年半くらいは主にFlutterで開発'),
-                Gap(24),
-                PrimaryText(text: 'スマホを愛するあまり、開発の沼にハマったオタク'),
                 Gap(55),
-                PrimaryText(
-                  text:
-                      'DroidKaigi2025に参加した時に大画面対応のセッションを見てFlutterでもやってみようとなった',
-                ),
+                PrimaryText(text: '高校が少し特殊で授業でJavaをやってたので高校生の頃からAndroidアプリ開発'),
                 Gap(8),
                 PrimaryText(
                   text:
-                      '[基礎から学ぶ大画面対応 \n〜「Large screen differentiated」認定アプリの開発知見〜]',
+                      'Java/XMLをやったあとに大学に入ってUdemyを徘徊してたらFlutterを見つけてFlutterを始める',
                 ),
+                Gap(16),
+                PrimaryText(
+                  text:
+                      'AI時代以前からずっとAndroid Studioを使っててだんだん性能が足りなくなりMacの性能不足で買い換える前は一瞬VScodeで開発していた',
+                ),
+                Gap(8),
+                PrimaryText(text: 'web系の開発は基本VScodeで開発してた'),
               ],
             ),
           ),
+          // Expanded(
+          //   flex: 1,
+          //   child: Column(
+          //     crossAxisAlignment: CrossAxisAlignment.start,
+          //     children: [
+          //       Gap(24),
+          //       PrimaryText(text: 'ここ1年半くらいは主にFlutterで開発'),
+          //       Gap(55),
+          //       PrimaryText(text: '高校が少し特殊で授業でJavaをやってたので高校生の頃からAndroidアプリ開発'),
+          //       Gap(8),
+          //       PrimaryText(
+          //         text:
+          //             'Java/XMLをやったあとに大学に入ってUdemyを徘徊してたらFlutterを見つけてFlutterを始める',
+          //       ),
+          //       Gap(8),
+          //       PrimaryText(
+          //         text: '学習開始2週間くらいでのりで参加したFlutterのイベントでご縁がありぽちぽちのつどいに入る',
+          //       ),
+          //     ],
+          //   ),
+          // ),
         ],
       ),
     );

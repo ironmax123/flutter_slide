@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
+import 'package:flutter_markdown/flutter_markdown.dart';
 import 'package:gap/gap.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:slides_for_mac/model/slide_content.dart';
@@ -26,7 +27,13 @@ class SlidePage extends HookConsumerWidget {
     }, [content.title]);
 
     // Layout Dispatcher
-    if (content.title.isEmpty && content.content.isNotEmpty) {
+    if (content.isMd == true) {
+      return _MarkdownLayout(
+        content: content.content,
+        images: content.images,
+        isRow: content.isRow,
+      );
+    } else if (content.title.isEmpty && content.content.isNotEmpty) {
       return _TitleLayout(text: content.content);
     } else if (content.content == 'DEMO') {
       return const _DemoTitleLayout();
@@ -41,6 +48,130 @@ class SlidePage extends HookConsumerWidget {
     } else {
       return _StandardLayout(content: content);
     }
+  }
+}
+
+class _MarkdownLayout extends StatelessWidget {
+  final String content;
+  final List<String>? images;
+  final bool? isRow;
+  const _MarkdownLayout({required this.content, this.images, this.isRow});
+
+  @override
+  Widget build(BuildContext context) {
+    final width = MediaQuery.of(context).size.width;
+    final fontSize = width / 40 < 20 ? 20.0 : width / 40;
+    // Calculate responsive image size
+    // For single image: maybe up to 80% width or constrained max width?
+    // For multiple images: share the width, e.g. 40% each with gap
+    final singleImageWidth = (width * 0.6) - 160;
+    final multiImageWidth = (width * 0.4) - 80;
+
+    // Safety check for very small screens
+    final effectiveMultiWidth = multiImageWidth < 150 ? 150.0 : multiImageWidth;
+
+    final markdownBody = MarkdownBody(
+      data: content,
+      styleSheet: MarkdownStyleSheet(
+        h1: TextStyle(fontSize: fontSize * 2.0, fontWeight: FontWeight.bold),
+        h2: TextStyle(fontSize: fontSize * 1.5, fontWeight: FontWeight.bold),
+        h3: TextStyle(fontSize: fontSize * 1.17, fontWeight: FontWeight.bold),
+        p: TextStyle(fontSize: fontSize),
+        listBullet: TextStyle(fontSize: fontSize),
+        tableBody: const TextStyle(fontSize: 20),
+        tableHead: const TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
+      ),
+    );
+
+    final imageWidget =
+        images != null && images!.isNotEmpty
+            ? Column(
+              children: [
+                const Gap(16),
+                if (images!.length == 1)
+                  Center(
+                    child: Image.asset(images!.first, width: singleImageWidth),
+                  )
+                else
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      for (var i = 0; i < images!.length; i++) ...[
+                        if (i > 0) const Gap(16),
+                        Image.asset(images![i], width: effectiveMultiWidth),
+                      ],
+                    ],
+                  ),
+              ],
+            )
+            : const SizedBox.shrink();
+
+    if (isRow == true) {
+      final height = MediaQuery.of(context).size.height;
+      return Padding(
+        padding: const EdgeInsets.symmetric(horizontal: 32),
+        child: Row(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Expanded(child: markdownBody),
+            const Gap(32),
+            Expanded(
+              child:
+                  images != null && images!.isNotEmpty
+                      ? SizedBox(
+                        height:
+                            height * 0.8, // Constrain height to 80% of screen
+                        child: Column(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            if (images!.length == 1)
+                              Expanded(
+                                child: Image.asset(
+                                  images!.first,
+                                  fit: BoxFit.contain, // Fit within bounds
+                                ),
+                              )
+                            else
+                              // For multiple images, we might still have overflow if not careful,
+                              // but let's assume wrapping fits or usage reduces size.
+                              // If using Wrap, we can't easily Expanded.
+                              // Let's keep Wrap as is but inside the SizedBox it will center-align?
+                              // Actually Column > Wrap might overflow SizedBox if too big.
+                              // Let's make it scrollable or just center.
+                              Center(
+                                child: Wrap(
+                                  spacing: 16,
+                                  runSpacing: 16,
+                                  alignment: WrapAlignment.center,
+                                  children:
+                                      images!
+                                          .map(
+                                            (img) => Image.asset(
+                                              img,
+                                              width:
+                                                  effectiveMultiWidth, // Reuse calculated width
+                                            ),
+                                          )
+                                          .toList(),
+                                ),
+                              ),
+                          ],
+                        ),
+                      )
+                      : const SizedBox.shrink(),
+            ),
+          ],
+        ),
+      );
+    }
+
+    return Padding(
+      padding: const EdgeInsets.symmetric(horizontal: 32),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [markdownBody, imageWidget],
+      ),
+    );
   }
 }
 
@@ -188,6 +319,41 @@ class _StandardLayout extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           ...lines.map((line) {
+            if (line.contains('|')) {
+              final parts = line.split('|');
+              return IntrinsicHeight(
+                child: Row(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Expanded(
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          PrimaryText(text: parts[0].trim()),
+                          const Gap(8),
+                        ],
+                      ),
+                    ),
+                    const VerticalDivider(
+                      color: Colors.grey,
+                      thickness: 1,
+                      width: 32,
+                    ),
+                    Expanded(
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          PrimaryText(
+                            text: parts.length > 1 ? parts[1].trim() : '',
+                          ),
+                          const Gap(8),
+                        ],
+                      ),
+                    ),
+                  ],
+                ),
+              );
+            }
             return Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [PrimaryText(text: line), const Gap(8)],

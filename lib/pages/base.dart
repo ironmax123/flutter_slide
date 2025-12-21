@@ -11,7 +11,7 @@ import 'components/app_bar.dart';
 import 'page_2.dart';
 
 Future<List<SlideContent>> loadSlides() async {
-  final jsonString = await rootBundle.loadString('assets/content.json');
+  final jsonString = await rootBundle.loadString('assets/ai_edit.json');
   final List<dynamic> jsonList = json.decode(jsonString);
   return jsonList.map((json) => SlideContent.fromJson(json)).toList();
 }
@@ -31,7 +31,6 @@ class Base extends HookConsumerWidget {
       initialPage: state.currentPageIndex,
     );
     final focusNode = useFocusNode();
-
     if (!snapshot.hasData) {
       return const Scaffold(body: Center(child: CircularProgressIndicator()));
     }

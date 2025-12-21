@@ -1,0 +1,91 @@
+[
+  {
+    "page_num": 1,
+    "title": "",
+    "content": "2025年をAIとともに振り返ってみる",
+    "images": null
+  },
+    {"page_num": 3,
+    "title": "見方",
+    "content": "個人的な話/世間の大きな出来事|AI関連の出来事",
+    "images": null
+  },
+   {
+    "page_num": 4,
+    "title": "1月",
+    "content": "Supabaseを見つけて試してみる/Honoも同時に初めてみる|中国のDeepSheekが低予算でR1モデルを開発しオープンにした",
+    "images": null
+  },
+   {
+    "page_num": 5,
+    "title": "2月",
+    "content": "月末Ale Engineerの小規模3dayハッカソンが中止になり週末暇になる|Apple Intelligenceが日本語対応\nホンダと日産　統合撤回|GPT-4.5が発表,提供開始,|Google Gemini 2.0が公開",
+    "images": null
+  },
+   {
+    "page_num": 6,
+    "title": "3月",
+    "content": "暇になったのでJALカードスカイメイトで沖縄弾丸|Munus登場により自立型エージェントとしてのGenAIが注目される\nAle engineerのハッカソンに出てなぜか天王寺から梅田まで一晩歩いた|Gemini 2.5 Proを発表",
+    "images": null
+  },
+  {
+    "page_num": 7,
+    "title": "4月",
+    "content": "BABYMONSTERのライブ行った！|GPT-4.1 が正式リリース\n大阪関西万博がいのち輝く未来社会のデザインというテーマで開幕私も一足先にテストランに！|MCPが流行する,CursorなどでMCPで開発支援！みたいなのが流行った記憶\nStar Wars celebration Japanに参加した",
+    "images": null
+  },
+  {
+    "page_num": 8,
+    "title": "5月",
+    "content": "ゆめみさん買収と怪文書騒動|ClaudeCode一般提供開始\n Google I/OにてMaterial3 Expressiveが発表|Google AI Pro学生無料提供",
+    "images": null
+  },
+  {
+    "page_num": 9,
+    "title": "6月",
+    "content": "WWDC25にてLiquidGlassが発表|GeminiCLIが無料提供開始\n DroidKaigi.collectにて初登壇|Duolingoの新コースがCursorを使って8ヶ月で完成されたことが公開\n「ゆめしまっぷ」をAppStoreで配信開始",
+    "images": null
+  },
+  {
+    "page_num": 10,
+    "title": "7月",
+    "content": "万博行きたくなって夏パスを購入|Claude Code Actionを使ってレビューやMCP連携できるようになる\n|AWS Kiroが無料提供開始",
+    "images": null
+  },
+  {
+    "page_num": 11,
+    "title": "8月",
+    "content": "万博行くか家にいるかの２択生活をする|GPT-5 が公開世界中で4oを返せ！がはやる\n夏の甲子園、沖縄尚学が初優勝|NanoBananaが公開\n|CodexCLIが一般提供開始Proプランでも使用できるようになった",
+    "images": null
+  },
+  {
+    "page_num": 12,
+    "title": "9月",
+    "content": "DroidKaigi2025スカラーシップで参加|GPT‑5‑Codexが提供開始\nAleEngineのハッカソンに参加|",
+    "images": null
+  },
+  {
+    "page_num": 13,
+    "title": "10月",
+    "content": "Flutterを使ったフォルダブルへの対応を考える|OpenAIのGPTが直接アプリを操作できるApps SDKを発表\n10/13大阪関西万博がおしまれつつ閉幕|AI翻訳ツールnaniが流行\nDroidKaigi.collectで2回目の登壇\nFlutter_solidが注目されるが...",
+    "images": null
+  },
+  {
+    "page_num": 14,
+    "title": "11月",
+    "content": "主催LTを開催|年内はないと思われてたGemini3が突然発表\nFlutterKaigi2025参加|NanoBananaPro公開\nMobile Act OSAKA 17登壇|Google Antigravityが公開される\naespa城ホday2行った|GPT‑5.1が公開\n|Claude Opus 4.5が公開される",
+    "images": null
+  },
+  {
+    "page_num": 15,
+    "title": "12月",
+    "content": "",
+    "images": null
+  },
+  {
+    "page_num": 16,
+    "title": "まとめ",
+    "content": "- 今年は様々なイベントに参加した\n- LTも主催した\n- AI分野は昨年よりも大きな変化があった1年だったとおもうのでまた来年以降も大きな変化があると思う",
+    "images": null
+  }
+]

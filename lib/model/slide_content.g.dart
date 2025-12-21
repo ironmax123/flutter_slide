@@ -13,6 +13,8 @@ _$SlideContentImpl _$$SlideContentImplFromJson(Map<String, dynamic> json) =>
       content: json['content'] as String,
       images:
           (json['images'] as List<dynamic>?)?.map((e) => e as String).toList(),
+      isMd: json['isMd'] as bool? ?? false,
+      isRow: json['isRow'] as bool?,
     );
 
 Map<String, dynamic> _$$SlideContentImplToJson(_$SlideContentImpl instance) =>
@@ -21,4 +23,6 @@ Map<String, dynamic> _$$SlideContentImplToJson(_$SlideContentImpl instance) =>
       'title': instance.title,
       'content': instance.content,
       'images': instance.images,
+      'isMd': instance.isMd,
+      'isRow': instance.isRow,
     };

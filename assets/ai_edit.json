@@ -1,0 +1,82 @@
+[
+  {
+    "page_num": 1,
+    "title": "",
+    "content": "Googleの新AIエディタAntigravityを使ってみた",
+    "images": null,
+    "isMd": false,
+    "isRow":null
+  },
+  {
+    "page_num": 3,
+    "title": "🏗 なぜ Android Studio を使い続けていたか",
+    "content": "- Create Flutter ProjectなどFlutterでも意外と使えた  \n- 長年の慣れによる安心感  \n- 最近では Tab 補完や Gemini チャットなど AI 連携も強化\n\n→ **正直、Android Studio で十分満足していた**",
+    "images": ["assets/images/ai_edit/logo.png","assets/images/ai_edit/android_studio.png"],
+    "isMd": true,
+    "isRow":null
+  },
+  {
+    "page_num": 4,
+    "title": "他のAIエディタ",
+    "content": "### VSCode\n- Web / Python 用には慣れてる  \n- でも Android / Flutter 開発用に乗り換える気は起きず  \n    - Macの性能不足で一時期はFlutterでも使用してたがMacの買い替えてからAndroid Studioに戻ってきた\n\n### Cursor / Kiro\n- 一瞬使って「なんか難しい…」で離脱  \n- 設定やエージェントのクセが強め  \n- .cursor???.kiro???面倒やなAndroidStudioとClaudeCodeで良い",
+    "images": null,
+    "isMd": true,
+    "isRow":null
+  },
+  {
+    "page_num": 5,
+    "title": "Antigravity",
+    "content": "- あのGoogleがAIエディタ？まあ一回触るか\n- VSコード準拠で面倒な設定しなくても使えるんかええやん\n- AntigravityくんKiroやCursorとほぼ同じことができて尚且つ対話専用windowもええな",
+    "images": null,
+    "isMd": true,
+    "isRow":null
+  },
+  {
+    "page_num": 6,
+    "title": "Antigravity の感想1",
+    "content": "# ⌘ + E（Command + E）  \n### 「会話 ↔ コード」の瞬間切替が強すぎる\n\n- 対話専用でプランモードにすれば作業の進度がわかる\n- window切り替えでエディタと往復する\n    - よくあるチャットも用意されてるのでVScodeやCursorのような使い方もできる",
+    "images": ["assets/images/ai_edit/cmd_e2.png"],
+    "isMd": true,
+    "isRow":null
+  },
+  {
+    "page_num": 7,
+    "title": "Antigravity の感想2",
+    "content": "# MCP Store が便利\n\n- Figma Dev ModeやDart MCP,SupabaseMCPなど\n- jsonをわざわざ作らなくてもクリックするだけでエージェントが使えるようになる\n- **「設定しなくても勝手に賢くなるAI IDE」**",
+    "images": ["assets/images/ai_edit/mcp_server.png"],
+    "isMd": true,
+    "isRow":true
+  },
+  {
+    "page_num": 8,
+    "title": "Antigravity の感想3",
+    "content": "# 補完がまじで優秀\n\n### 例：print → log に1行書き換え  \n- その瞬間、**ファイル全体の print が “Tab で一括修正候補” として出てくる**",
+    "images": ["assets/images/ai_edit/print_log1.png","assets/images/ai_edit/print_log2.png"],
+    "isMd": true,
+    "isRow":null
+  },
+  {
+    "page_num": 9,
+    "title": "Antigravity の感想4",
+    "content": "### ブラウザ操作が便利\n\n webサイトを作成するときにcmd +Eの画面でプロンプトにブラウザで確認してほしいという旨を伝えるとブラウザを起動してChromeの拡張機能を使用してエージェントが確認してくれる\n\n\n他にもプランモードでは作成されたプランに対してレビューをして改善するなどができますが今のところ提案するプランが英語なので少し使いづらいです",
+    "images": ["assets/images/ai_edit/open_browse.png"],
+    "isMd": true,
+    "isRow":null
+  },
+  {
+    "page_num": 10,
+    "title": "結論",
+    "content": "### Antigravity は \n\n- Cmd + E の快適さ  \n- 補完精度  \n- MCP 連携  \n- 編集意図理解の高さなど点において優秀\n\n  →Flutterやwebなど普段使いしています",
+    "images": null,
+    "isMd": true,
+    "isRow":null
+  },
+  {
+    "page_num": 11,
+    "title": "",
+    "content": "「Antigravity、Cmd + E だけでも触る価値あります」",
+    "images": null,
+    "isMd": false,
+    "isRow":null
+  }
+]

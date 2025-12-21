@@ -26,6 +26,8 @@ mixin _$SlideContent {
   String get title => throw _privateConstructorUsedError;
   String get content => throw _privateConstructorUsedError;
   List<String>? get images => throw _privateConstructorUsedError;
+  bool? get isMd => throw _privateConstructorUsedError;
+  bool? get isRow => throw _privateConstructorUsedError;
 
   /// Serializes this SlideContent to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
@@ -49,6 +51,8 @@ abstract class $SlideContentCopyWith<$Res> {
     String title,
     String content,
     List<String>? images,
+    bool? isMd,
+    bool? isRow,
   });
 }
 
@@ -71,6 +75,8 @@ class _$SlideContentCopyWithImpl<$Res, $Val extends SlideContent>
     Object? title = null,
     Object? content = null,
     Object? images = freezed,
+    Object? isMd = freezed,
+    Object? isRow = freezed,
   }) {
     return _then(
       _value.copyWith(
@@ -94,6 +100,16 @@ class _$SlideContentCopyWithImpl<$Res, $Val extends SlideContent>
                     ? _value.images
                     : images // ignore: cast_nullable_to_non_nullable
                         as List<String>?,
+            isMd:
+                freezed == isMd
+                    ? _value.isMd
+                    : isMd // ignore: cast_nullable_to_non_nullable
+                        as bool?,
+            isRow:
+                freezed == isRow
+                    ? _value.isRow
+                    : isRow // ignore: cast_nullable_to_non_nullable
+                        as bool?,
           )
           as $Val,
     );
@@ -114,6 +130,8 @@ abstract class _$$SlideContentImplCopyWith<$Res>
     String title,
     String content,
     List<String>? images,
+    bool? isMd,
+    bool? isRow,
   });
 }
 
@@ -135,6 +153,8 @@ class __$$SlideContentImplCopyWithImpl<$Res>
     Object? title = null,
     Object? content = null,
     Object? images = freezed,
+    Object? isMd = freezed,
+    Object? isRow = freezed,
   }) {
     return _then(
       _$SlideContentImpl(
@@ -158,6 +178,16 @@ class __$$SlideContentImplCopyWithImpl<$Res>
                 ? _value._images
                 : images // ignore: cast_nullable_to_non_nullable
                     as List<String>?,
+        isMd:
+            freezed == isMd
+                ? _value.isMd
+                : isMd // ignore: cast_nullable_to_non_nullable
+                    as bool?,
+        isRow:
+            freezed == isRow
+                ? _value.isRow
+                : isRow // ignore: cast_nullable_to_non_nullable
+                    as bool?,
       ),
     );
   }
@@ -171,6 +201,8 @@ class _$SlideContentImpl implements _SlideContent {
     required this.title,
     required this.content,
     final List<String>? images,
+    this.isMd = false,
+    this.isRow,
   }) : _images = images;
 
   factory _$SlideContentImpl.fromJson(Map<String, dynamic> json) =>
@@ -194,8 +226,14 @@ class _$SlideContentImpl implements _SlideContent {
   }
 
   @override
+  @JsonKey()
+  final bool? isMd;
+  @override
+  final bool? isRow;
+
+  @override
   String toString() {
-    return 'SlideContent(pageNum: $pageNum, title: $title, content: $content, images: $images)';
+    return 'SlideContent(pageNum: $pageNum, title: $title, content: $content, images: $images, isMd: $isMd, isRow: $isRow)';
   }
 
   @override
@@ -206,7 +244,9 @@ class _$SlideContentImpl implements _SlideContent {
             (identical(other.pageNum, pageNum) || other.pageNum == pageNum) &&
             (identical(other.title, title) || other.title == title) &&
             (identical(other.content, content) || other.content == content) &&
-            const DeepCollectionEquality().equals(other._images, _images));
+            const DeepCollectionEquality().equals(other._images, _images) &&
+            (identical(other.isMd, isMd) || other.isMd == isMd) &&
+            (identical(other.isRow, isRow) || other.isRow == isRow));
   }
 
   @JsonKey(includeFromJson: false, includeToJson: false)
@@ -217,6 +257,8 @@ class _$SlideContentImpl implements _SlideContent {
     title,
     content,
     const DeepCollectionEquality().hash(_images),
+    isMd,
+    isRow,
   );
 
   /// Create a copy of SlideContent
@@ -239,6 +281,8 @@ abstract class _SlideContent implements SlideContent {
     required final String title,
     required final String content,
     final List<String>? images,
+    final bool? isMd,
+    final bool? isRow,
   }) = _$SlideContentImpl;
 
   factory _SlideContent.fromJson(Map<String, dynamic> json) =
@@ -253,6 +297,10 @@ abstract class _SlideContent implements SlideContent {
   String get content;
   @override
   List<String>? get images;
+  @override
+  bool? get isMd;
+  @override
+  bool? get isRow;
 
   /// Create a copy of SlideContent
   /// with the given fields replaced by the non-null parameter values.
