@@ -311,70 +311,104 @@ class _StandardLayout extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final width = MediaQuery.of(context).size.width;
     final lines = content.content.split('\n');
 
-    return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 16),
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          ...lines.map((line) {
-            if (line.contains('|')) {
-              final parts = line.split('|');
-              return IntrinsicHeight(
-                child: Row(
-                  crossAxisAlignment: CrossAxisAlignment.start,
+    // Calculate responsive image size
+    // Similar logic to _MarkdownLayout to keep consistency
+    // Max width for single image: 60% of screen
+    final singleImageWidth = (width * 0.6);
+    // Max width for multiple images:
+    // 2 images: 45% of screen each
+    // 3 images: 30% of screen each
+    // 4+ images: 20% of screen each
+    double multiImageWidth = width * 0.2;
+    if (content.images != null) {
+      if (content.images!.length == 2) {
+        multiImageWidth = width * 0.45;
+      } else if (content.images!.length == 3) {
+        multiImageWidth = width * 0.3;
+      }
+    }
+
+    return SingleChildScrollView(
+      child: Padding(
+        padding: const EdgeInsets.symmetric(horizontal: 16),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            ...lines.map((line) {
+              if (line.contains('|')) {
+                final parts = line.split('|');
+                return IntrinsicHeight(
+                  child: Row(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Expanded(
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            PrimaryText(text: parts[0].trim()),
+                            const Gap(8),
+                          ],
+                        ),
+                      ),
+                      const VerticalDivider(
+                        color: Colors.grey,
+                        thickness: 1,
+                        width: 32,
+                      ),
+                      Expanded(
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            PrimaryText(
+                              text: parts.length > 1 ? parts[1].trim() : '',
+                            ),
+                            const Gap(8),
+                          ],
+                        ),
+                      ),
+                    ],
+                  ),
+                );
+              }
+              return Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [PrimaryText(text: line), const Gap(8)],
+              );
+            }),
+            if (content.images != null && content.images!.isNotEmpty) ...[
+              const Gap(16),
+              if (content.images!.length == 1)
+                Center(
+                  child: ConstrainedBox(
+                    constraints: BoxConstraints(maxWidth: singleImageWidth),
+                    child: Image.asset(
+                      content.images!.first,
+                      fit: BoxFit.contain,
+                    ),
+                  ),
+                )
+              else
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    Expanded(
-                      child: Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          PrimaryText(text: parts[0].trim()),
-                          const Gap(8),
-                        ],
+                    for (var i = 0; i < content.images!.length; i++) ...[
+                      if (i > 0) const Gap(16),
+                      ConstrainedBox(
+                        constraints: BoxConstraints(maxWidth: multiImageWidth),
+                        child: Image.asset(
+                          content.images![i],
+                          fit: BoxFit.contain,
+                        ),
                       ),
-                    ),
-                    const VerticalDivider(
-                      color: Colors.grey,
-                      thickness: 1,
-                      width: 32,
-                    ),
-                    Expanded(
-                      child: Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          PrimaryText(
-                            text: parts.length > 1 ? parts[1].trim() : '',
-                          ),
-                          const Gap(8),
-                        ],
-                      ),
-                    ),
+                    ],
                   ],
                 ),
-              );
-            }
-            return Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [PrimaryText(text: line), const Gap(8)],
-            );
-          }),
-          if (content.images != null && content.images!.isNotEmpty) ...[
-            const Gap(16),
-            if (content.images!.length == 1)
-              Center(child: Image.asset(content.images!.first))
-            else
-              Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  for (var i = 0; i < content.images!.length; i++) ...[
-                    if (i > 0) const Gap(16),
-                    Image.asset(content.images![i], width: 400),
-                  ],
-                ],
-              ),
+            ],
           ],
-        ],
+        ),
       ),
     );
   }
