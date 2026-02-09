@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
+import 'package:multi_window_native/multi_window_native.dart';
 import 'package:slides_for_mac/model/slide_content.dart';
 import 'package:slides_for_mac/pages/components/slide_page.dart';
 
@@ -16,6 +17,14 @@ Future<List<SlideContent>> loadSlides() async {
   );
   final List<dynamic> jsonList = json.decode(jsonString);
   return jsonList.map((json) => SlideContent.fromJson(json)).toList();
+}
+
+void _openWindow() async {
+  await MultiWindowNative.createWindow([
+    'secondScreen', // Route name
+    '{}', // Arguments as JSON string
+    'light', // Theme mode
+  ]);
 }
 
 class Base extends HookConsumerWidget {
@@ -69,6 +78,11 @@ class Base extends HookConsumerWidget {
       WidgetsBinding.instance.addPostFrameCallback((_) {
         focusNode.requestFocus();
       });
+      WidgetsBinding.instance.addPostFrameCallback((_) async {
+        await WidgetsBinding.instance.endOfFrame;
+        await MultiWindowNative.notifyUiRendered();
+      });
+      _openWindow();
       return null;
     }, []);
 
