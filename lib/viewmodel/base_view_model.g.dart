@@ -6,7 +6,7 @@ part of 'base_view_model.dart';
 // RiverpodGenerator
 // **************************************************************************
 
-String _$baseViewModelHash() => r'3ec87c04fa0dae55827910daeff62fae2c7040e5';
+String _$baseViewModelHash() => r'5c4ddbab4a516a315cbe9560050bd0b652386a08';
 
 /// See also [BaseViewModel].
 @ProviderFor(BaseViewModel)
@@ -14,10 +14,9 @@ final baseViewModelProvider =
     AutoDisposeNotifierProvider<BaseViewModel, AppBarState>.internal(
       BaseViewModel.new,
       name: r'baseViewModelProvider',
-      debugGetCreateSourceHash:
-          const bool.fromEnvironment('dart.vm.product')
-              ? null
-              : _$baseViewModelHash,
+      debugGetCreateSourceHash: const bool.fromEnvironment('dart.vm.product')
+          ? null
+          : _$baseViewModelHash,
       dependencies: null,
       allTransitiveDependencies: null,
     );

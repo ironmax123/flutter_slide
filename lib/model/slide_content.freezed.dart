@@ -80,36 +80,30 @@ class _$SlideContentCopyWithImpl<$Res, $Val extends SlideContent>
   }) {
     return _then(
       _value.copyWith(
-            pageNum:
-                null == pageNum
-                    ? _value.pageNum
-                    : pageNum // ignore: cast_nullable_to_non_nullable
-                        as int,
-            title:
-                null == title
-                    ? _value.title
-                    : title // ignore: cast_nullable_to_non_nullable
-                        as String,
-            content:
-                null == content
-                    ? _value.content
-                    : content // ignore: cast_nullable_to_non_nullable
-                        as String,
-            images:
-                freezed == images
-                    ? _value.images
-                    : images // ignore: cast_nullable_to_non_nullable
-                        as List<String>?,
-            isMd:
-                freezed == isMd
-                    ? _value.isMd
-                    : isMd // ignore: cast_nullable_to_non_nullable
-                        as bool?,
-            isRow:
-                freezed == isRow
-                    ? _value.isRow
-                    : isRow // ignore: cast_nullable_to_non_nullable
-                        as bool?,
+            pageNum: null == pageNum
+                ? _value.pageNum
+                : pageNum // ignore: cast_nullable_to_non_nullable
+                      as int,
+            title: null == title
+                ? _value.title
+                : title // ignore: cast_nullable_to_non_nullable
+                      as String,
+            content: null == content
+                ? _value.content
+                : content // ignore: cast_nullable_to_non_nullable
+                      as String,
+            images: freezed == images
+                ? _value.images
+                : images // ignore: cast_nullable_to_non_nullable
+                      as List<String>?,
+            isMd: freezed == isMd
+                ? _value.isMd
+                : isMd // ignore: cast_nullable_to_non_nullable
+                      as bool?,
+            isRow: freezed == isRow
+                ? _value.isRow
+                : isRow // ignore: cast_nullable_to_non_nullable
+                      as bool?,
           )
           as $Val,
     );
@@ -158,36 +152,30 @@ class __$$SlideContentImplCopyWithImpl<$Res>
   }) {
     return _then(
       _$SlideContentImpl(
-        pageNum:
-            null == pageNum
-                ? _value.pageNum
-                : pageNum // ignore: cast_nullable_to_non_nullable
-                    as int,
-        title:
-            null == title
-                ? _value.title
-                : title // ignore: cast_nullable_to_non_nullable
-                    as String,
-        content:
-            null == content
-                ? _value.content
-                : content // ignore: cast_nullable_to_non_nullable
-                    as String,
-        images:
-            freezed == images
-                ? _value._images
-                : images // ignore: cast_nullable_to_non_nullable
-                    as List<String>?,
-        isMd:
-            freezed == isMd
-                ? _value.isMd
-                : isMd // ignore: cast_nullable_to_non_nullable
-                    as bool?,
-        isRow:
-            freezed == isRow
-                ? _value.isRow
-                : isRow // ignore: cast_nullable_to_non_nullable
-                    as bool?,
+        pageNum: null == pageNum
+            ? _value.pageNum
+            : pageNum // ignore: cast_nullable_to_non_nullable
+                  as int,
+        title: null == title
+            ? _value.title
+            : title // ignore: cast_nullable_to_non_nullable
+                  as String,
+        content: null == content
+            ? _value.content
+            : content // ignore: cast_nullable_to_non_nullable
+                  as String,
+        images: freezed == images
+            ? _value._images
+            : images // ignore: cast_nullable_to_non_nullable
+                  as List<String>?,
+        isMd: freezed == isMd
+            ? _value.isMd
+            : isMd // ignore: cast_nullable_to_non_nullable
+                  as bool?,
+        isRow: freezed == isRow
+            ? _value.isRow
+            : isRow // ignore: cast_nullable_to_non_nullable
+                  as bool?,
       ),
     );
   }

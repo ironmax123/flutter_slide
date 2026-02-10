@@ -21,6 +21,7 @@ mixin _$AppBarState {
   bool get isVisible => throw _privateConstructorUsedError;
   bool get showBackButton => throw _privateConstructorUsedError;
   int get currentPageIndex => throw _privateConstructorUsedError;
+  bool get isConnected => throw _privateConstructorUsedError;
 
   /// Create a copy of AppBarState
   /// with the given fields replaced by the non-null parameter values.
@@ -41,6 +42,7 @@ abstract class $AppBarStateCopyWith<$Res> {
     bool isVisible,
     bool showBackButton,
     int currentPageIndex,
+    bool isConnected,
   });
 }
 
@@ -63,29 +65,30 @@ class _$AppBarStateCopyWithImpl<$Res, $Val extends AppBarState>
     Object? isVisible = null,
     Object? showBackButton = null,
     Object? currentPageIndex = null,
+    Object? isConnected = null,
   }) {
     return _then(
       _value.copyWith(
-            title:
-                null == title
-                    ? _value.title
-                    : title // ignore: cast_nullable_to_non_nullable
-                        as String,
-            isVisible:
-                null == isVisible
-                    ? _value.isVisible
-                    : isVisible // ignore: cast_nullable_to_non_nullable
-                        as bool,
-            showBackButton:
-                null == showBackButton
-                    ? _value.showBackButton
-                    : showBackButton // ignore: cast_nullable_to_non_nullable
-                        as bool,
-            currentPageIndex:
-                null == currentPageIndex
-                    ? _value.currentPageIndex
-                    : currentPageIndex // ignore: cast_nullable_to_non_nullable
-                        as int,
+            title: null == title
+                ? _value.title
+                : title // ignore: cast_nullable_to_non_nullable
+                      as String,
+            isVisible: null == isVisible
+                ? _value.isVisible
+                : isVisible // ignore: cast_nullable_to_non_nullable
+                      as bool,
+            showBackButton: null == showBackButton
+                ? _value.showBackButton
+                : showBackButton // ignore: cast_nullable_to_non_nullable
+                      as bool,
+            currentPageIndex: null == currentPageIndex
+                ? _value.currentPageIndex
+                : currentPageIndex // ignore: cast_nullable_to_non_nullable
+                      as int,
+            isConnected: null == isConnected
+                ? _value.isConnected
+                : isConnected // ignore: cast_nullable_to_non_nullable
+                      as bool,
           )
           as $Val,
     );
@@ -106,6 +109,7 @@ abstract class _$$AppBarStateImplCopyWith<$Res>
     bool isVisible,
     bool showBackButton,
     int currentPageIndex,
+    bool isConnected,
   });
 }
 
@@ -127,29 +131,30 @@ class __$$AppBarStateImplCopyWithImpl<$Res>
     Object? isVisible = null,
     Object? showBackButton = null,
     Object? currentPageIndex = null,
+    Object? isConnected = null,
   }) {
     return _then(
       _$AppBarStateImpl(
-        title:
-            null == title
-                ? _value.title
-                : title // ignore: cast_nullable_to_non_nullable
-                    as String,
-        isVisible:
-            null == isVisible
-                ? _value.isVisible
-                : isVisible // ignore: cast_nullable_to_non_nullable
-                    as bool,
-        showBackButton:
-            null == showBackButton
-                ? _value.showBackButton
-                : showBackButton // ignore: cast_nullable_to_non_nullable
-                    as bool,
-        currentPageIndex:
-            null == currentPageIndex
-                ? _value.currentPageIndex
-                : currentPageIndex // ignore: cast_nullable_to_non_nullable
-                    as int,
+        title: null == title
+            ? _value.title
+            : title // ignore: cast_nullable_to_non_nullable
+                  as String,
+        isVisible: null == isVisible
+            ? _value.isVisible
+            : isVisible // ignore: cast_nullable_to_non_nullable
+                  as bool,
+        showBackButton: null == showBackButton
+            ? _value.showBackButton
+            : showBackButton // ignore: cast_nullable_to_non_nullable
+                  as bool,
+        currentPageIndex: null == currentPageIndex
+            ? _value.currentPageIndex
+            : currentPageIndex // ignore: cast_nullable_to_non_nullable
+                  as int,
+        isConnected: null == isConnected
+            ? _value.isConnected
+            : isConnected // ignore: cast_nullable_to_non_nullable
+                  as bool,
       ),
     );
   }
@@ -163,6 +168,7 @@ class _$AppBarStateImpl implements _AppBarState {
     this.isVisible = false,
     this.showBackButton = true,
     this.currentPageIndex = 0,
+    this.isConnected = false,
   });
 
   @override
@@ -176,10 +182,13 @@ class _$AppBarStateImpl implements _AppBarState {
   @override
   @JsonKey()
   final int currentPageIndex;
+  @override
+  @JsonKey()
+  final bool isConnected;
 
   @override
   String toString() {
-    return 'AppBarState(title: $title, isVisible: $isVisible, showBackButton: $showBackButton, currentPageIndex: $currentPageIndex)';
+    return 'AppBarState(title: $title, isVisible: $isVisible, showBackButton: $showBackButton, currentPageIndex: $currentPageIndex, isConnected: $isConnected)';
   }
 
   @override
@@ -193,7 +202,9 @@ class _$AppBarStateImpl implements _AppBarState {
             (identical(other.showBackButton, showBackButton) ||
                 other.showBackButton == showBackButton) &&
             (identical(other.currentPageIndex, currentPageIndex) ||
-                other.currentPageIndex == currentPageIndex));
+                other.currentPageIndex == currentPageIndex) &&
+            (identical(other.isConnected, isConnected) ||
+                other.isConnected == isConnected));
   }
 
   @override
@@ -203,6 +214,7 @@ class _$AppBarStateImpl implements _AppBarState {
     isVisible,
     showBackButton,
     currentPageIndex,
+    isConnected,
   );
 
   /// Create a copy of AppBarState
@@ -220,6 +232,7 @@ abstract class _AppBarState implements AppBarState {
     final bool isVisible,
     final bool showBackButton,
     final int currentPageIndex,
+    final bool isConnected,
   }) = _$AppBarStateImpl;
 
   @override
@@ -230,6 +243,8 @@ abstract class _AppBarState implements AppBarState {
   bool get showBackButton;
   @override
   int get currentPageIndex;
+  @override
+  bool get isConnected;
 
   /// Create a copy of AppBarState
   /// with the given fields replaced by the non-null parameter values.

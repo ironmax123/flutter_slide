@@ -11,8 +11,9 @@ _$SlideContentImpl _$$SlideContentImplFromJson(Map<String, dynamic> json) =>
       pageNum: (json['page_num'] as num).toInt(),
       title: json['title'] as String,
       content: json['content'] as String,
-      images:
-          (json['images'] as List<dynamic>?)?.map((e) => e as String).toList(),
+      images: (json['images'] as List<dynamic>?)
+          ?.map((e) => e as String)
+          .toList(),
       isMd: json['isMd'] as bool? ?? false,
       isRow: json['isRow'] as bool?,
     );

@@ -19,12 +19,14 @@ Future<List<SlideContent>> loadSlides() async {
   return jsonList.map((json) => SlideContent.fromJson(json)).toList();
 }
 
-void _openWindow() async {
+void _openWindow(BaseViewModel viewModel) async {
   await MultiWindowNative.createWindow([
     'secondScreen', // Route name
     '{}', // Arguments as JSON string
     'light', // Theme mode
   ]);
+  // No need to manually trigger connection here anymore.
+  // BaseViewModel listens for the server start event.
 }
 
 class Base extends HookConsumerWidget {
@@ -82,7 +84,7 @@ class Base extends HookConsumerWidget {
         await WidgetsBinding.instance.endOfFrame;
         await MultiWindowNative.notifyUiRendered();
       });
-      _openWindow();
+      _openWindow(viewModel);
       return null;
     }, []);
 
