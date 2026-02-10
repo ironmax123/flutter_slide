@@ -26,14 +26,24 @@ class Base2 extends HookConsumerWidget {
 
     Future<void> startServer() async {
       final port = int.tryParse(portController.text) ?? 8000;
-      final s = await ServerSocket.bind(hostname, port);
-      server.value = s;
-      isStarted.value = true;
+      try {
+        final s = await ServerSocket.bind(hostname, port);
+        server.value = s;
+        isStarted.value = true;
 
-      serverIp.value = hostname;
+        serverIp.value = hostname;
 
-      // Notify native layer about the server port
-      await ServerStateService.setServerPort(port);
+        // Notify native layer about the server port
+        await ServerStateService.setServerPort(port);
+      } catch (e) {
+        print("Error binding to port $port: $e");
+        if (context.mounted) {
+          ScaffoldMessenger.of(
+            context,
+          ).showSnackBar(SnackBar(content: Text('Error starting server: $e')));
+        }
+        return;
+      }
 
       try {
         server.value?.listen((Socket socket) {

@@ -48,14 +48,16 @@ class AppDelegate: FlutterAppDelegate {
               if let args = call.arguments as? [String: Any],
                  let port = args["port"] as? Int {
                   // Broadcast to all engines
-                  let windows = NSApp.windows
-                  for window in windows {
-                      if let flutterVC = window.contentViewController as? FlutterViewController {
-                           let channel = FlutterMethodChannel(name: "com.example.slides_for_mac/server_state", binaryMessenger: flutterVC.engine.binaryMessenger)
-                           channel.invokeMethod("onServerPortChanged", arguments: ["port": port])
+                  DispatchQueue.main.async {
+                      let windows = NSApp.windows
+                      for window in windows {
+                          if let flutterVC = window.contentViewController as? FlutterViewController {
+                               let channel = FlutterMethodChannel(name: "com.example.slides_for_mac/server_state", binaryMessenger: flutterVC.engine.binaryMessenger)
+                               channel.invokeMethod("onServerPortChanged", arguments: ["port": port])
+                          }
                       }
+                      result(nil)
                   }
-                  result(nil)
               }
           } else {
               result(FlutterMethodNotImplemented)
