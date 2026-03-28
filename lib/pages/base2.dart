@@ -24,6 +24,27 @@ class Base2 extends HookConsumerWidget {
     final clients = useRef<List<Socket>>([]);
     final serverIp = useState<String?>(null);
 
+    Future<String?> getLocalIpAddress() async {
+      try {
+        final interfaces = await NetworkInterface.list(
+          type: InternetAddressType.IPv4,
+          includeLoopback: false,
+        );
+        if (interfaces.isNotEmpty) {
+          for (var interface in interfaces) {
+            for (var addr in interface.addresses) {
+              if (!addr.isLoopback) {
+                return addr.address;
+              }
+            }
+          }
+        }
+      } catch (e) {
+        print("Error getting IP: $e");
+      }
+      return null;
+    }
+
     Future<void> startServer() async {
       final port = int.tryParse(portController.text) ?? 8000;
       try {
@@ -31,7 +52,8 @@ class Base2 extends HookConsumerWidget {
         server.value = s;
         isStarted.value = true;
 
-        serverIp.value = hostname;
+        final ip = await getLocalIpAddress();
+        serverIp.value = ip ?? hostname;
 
         // Notify native layer about the server port
         await ServerStateService.setServerPort(port);

@@ -17,7 +17,9 @@ void main() {
 
     // Pump the app wrapped in RepaintBoundary and ProviderScope
     await tester.pumpWidget(
-      ProviderScope(child: RepaintBoundary(key: key, child: const MyApp())),
+      ProviderScope(
+        child: RepaintBoundary(key: key, child: const MyApp()),
+      ),
     );
     await tester.pumpAndSettle();
 
@@ -28,7 +30,7 @@ void main() {
     }
     directory.createSync();
 
-    const totalPages = 11;
+    const totalPages = 19;
 
     for (int i = 0; i < totalPages; i++) {
       // Wait for animations
